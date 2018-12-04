@@ -39,11 +39,11 @@ int dec2hex(string hex[NUMBIT], int number) {
     modulus = number % 16;
     if (modulus > 9) {
       modulus -= 10;
-      hexadecim = alphabet[modulus];
+      hexadecim = alphabet[modulus]; //letters input into string
       hex[index] = hexadecim;
     } else {
-      hexadecim = '0' + modulus;
-      hex[index] = hexadecim;
+      hexadecim = '0' + modulus; //numbers input into string
+      hex[index] = hexadecim; 
     }
     number /= 16;
     index++;
@@ -52,13 +52,13 @@ int dec2hex(string hex[NUMBIT], int number) {
 }
 
 int hex2dec(int num) {
-  if (num > 96)
-    num -= 87;
+  if (num > 96) //lowercase letters entered
+    num -= 87; //converted to 10-15
   else {
-    if (num > 64)
-      num -= 55;
+    if (num > 64) //uppercase letters entered
+      num -= 55; //converted to 10-15
     else
-      num -= 48;
+      num -= 48; //converted to 1-9
   }
   return num;
 }
@@ -85,7 +85,7 @@ void printBin(int bits[NUMBIT]) {
 }
 
 int hexDecPrompt() {
-  int number = 0;
+  int number = 0;   //declutter from main
   string num2;
   cout << "Please input your number" << endl;
   cin >> num2;
@@ -149,7 +149,8 @@ int main() {
       cout << endl;
     }
     if((num != "b" && num != "d" && num != "h") || (conv != "b" && conv != "d" && conv != "h"))
-	  cout << "Invalid Choice" << endl;
+	    cout << "Invalid Choice" << endl;
+
     cout << "Would you like to continue? (y or n)" << endl;
     cin >> num;
     if (num == "n")
